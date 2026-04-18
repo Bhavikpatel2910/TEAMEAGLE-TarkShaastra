@@ -20,6 +20,18 @@ AI/
 pip install -r requirements.txt
 ```
 
+## Environment
+
+Database settings live in `.env`:
+
+```text
+MONGO_URI=<your-mongodb-uri>
+MONGO_DB=stampede_window_predictor
+MONGO_COLLECTION=predictions
+```
+
+Use `.env.example` as the template. `.env` is ignored by Git.
+
 ## Run
 
 Run from the `AI` folder:

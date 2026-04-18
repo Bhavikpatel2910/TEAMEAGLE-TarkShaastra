@@ -8,7 +8,7 @@ from __future__ import annotations
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 
-from db import save_prediction
+from db import database_configured, save_prediction
 from model import MODEL, get_prediction_result
 
 
@@ -50,6 +50,7 @@ def health_check() -> dict[str, str | bool]:
         "status": "ok",
         "service": "Stampede Window Predictor",
         "model_loaded": MODEL is not None,
+        "database_configured": database_configured(),
     }
 
 

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require('dotenv').config();
 
 const app = require('./src/app');
@@ -13,3 +14,13 @@ server.on('error', (error) => {
 });
 
 module.exports = server;
+=======
+const app = require('./src/app');
+require('dotenv').config();
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6

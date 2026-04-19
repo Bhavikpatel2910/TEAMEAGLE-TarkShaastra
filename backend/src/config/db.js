@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+<<<<<<< HEAD
 function isDbDisabled() {
   const flag = String(process.env.DISABLE_DB || '').trim().toLowerCase();
   return flag === '1' || flag === 'true' || flag === 'yes';
@@ -27,3 +28,16 @@ const connectDB = async () => {
 };
 
 module.exports = connectDB;
+=======
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB Connected');
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
+  }
+};
+
+module.exports = connectDB;
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6

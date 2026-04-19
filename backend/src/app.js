@@ -1,4 +1,8 @@
 const express = require('express');
+<<<<<<< HEAD
+=======
+require('dotenv').config();
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6
 const cors = require('cors');
 const connectDB = require('./config/db');
 
@@ -15,16 +19,20 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
+<<<<<<< HEAD
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
+=======
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6
 app.use('/api/auth', authRoutes);
 app.use('/api/corridors', corridorRoutes);
 app.use('/api/alerts', alertRoutes);
 app.use('/api/predictions', predictionRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 
+<<<<<<< HEAD
 app.use((req, res) => {
   res.status(404).json({
     error: 'Route not found',
@@ -40,3 +48,6 @@ app.use((err, req, res, next) => {
 });
 
 module.exports = app;
+=======
+module.exports = app;
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6

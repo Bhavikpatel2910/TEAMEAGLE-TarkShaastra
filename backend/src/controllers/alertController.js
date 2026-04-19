@@ -1,4 +1,5 @@
 const Alert = require('../models/Alert');
+<<<<<<< HEAD
 const mongoose = require('mongoose');
 const {
   listAlerts: listMemoryAlerts,
@@ -76,3 +77,24 @@ exports.acknowledgeAlert = async (req, res) => {
     res.status(500).json({ error: 'Failed to acknowledge alert', details: error.message });
   }
 };
+=======
+
+exports.getAlerts = async (req, res) => {
+  const alerts = await Alert.find();
+  res.json(alerts);
+};
+
+exports.createAlert = async (req, res) => {
+  const alert = await Alert.create(req.body);
+  res.json(alert);
+};
+
+exports.acknowledgeAlert = async (req, res) => {
+  const alert = await Alert.findByIdAndUpdate(
+    req.params.id,
+    { acknowledged: true },
+    { new: true }
+  );
+  res.json(alert);
+};
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6

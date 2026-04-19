@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const mongoose = require('mongoose');
 const Alert = require('../models/Alert');
 const Corridor = require('../models/Corridor');
@@ -62,3 +63,14 @@ exports.getDashboard = async (req, res) => {
     res.status(500).json({ error: 'Failed to load dashboard', details: error.message });
   }
 };
+=======
+const Corridor = require('../models/Corridor');
+const Alert = require('../models/Alert');
+
+exports.getDashboard = async (req, res) => {
+  const corridors = await Corridor.find();
+  const alerts = await Alert.find({ acknowledged: false });
+
+  res.json({ corridors, alerts });
+};
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6

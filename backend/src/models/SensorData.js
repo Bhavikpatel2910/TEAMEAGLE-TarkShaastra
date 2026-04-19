@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const sensorSchema = new mongoose.Schema({
+<<<<<<< HEAD
   corridorId: { type: String, required: true, index: true },
   entryRate: { type: Number, default: 0, min: 0 },
   exitRate: { type: Number, default: 0, min: 0 },
@@ -23,3 +24,13 @@ const sensorSchema = new mongoose.Schema({
 sensorSchema.index({ corridorId: 1, timestamp: -1 });
 
 module.exports = mongoose.model('SensorData', sensorSchema);
+=======
+  corridorId: String,
+  entryRate: Number,
+  exitRate: Number,
+  density: Number,
+  timestamp: { type: Date, default: Date.now }
+});
+
+module.exports = mongoose.model('SensorData', sensorSchema);
+>>>>>>> f73c97dc910deb3815eb350256a0852f5f0f4af6
